@@ -1,9 +1,8 @@
 package com.example.androiddevchallenge.ui.components
 
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -27,6 +26,15 @@ fun Toolbar() {
                 }
             },
             title = { Text(text = stringResource(id = R.string.app_name)) },
+            actions = {
+                IconButton(onClick = {}) {
+                    Icon(
+                        Icons.Filled.FilterList,
+                        contentDescription = "Filter puppies",
+                        tint = MaterialTheme.colors.onPrimary
+                    )
+                }
+            }
         )
     }
 }
