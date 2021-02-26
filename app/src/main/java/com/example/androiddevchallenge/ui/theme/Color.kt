@@ -18,7 +18,8 @@ package com.example.androiddevchallenge.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val brown = Color(0xFF795548)
-val darkDrown = Color(0xFF5D4037)
+val brownBkg = Color(0xFFf4f2f2)
+val darkBrown = Color(0xFF5D4037)
 val grey = Color(0xFF9E9E9E)
 val primaryText = Color(0xFF212121)
 val secondaryText = Color(0xFF757575)

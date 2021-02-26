@@ -18,19 +18,23 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.data.dummyValue
+import com.example.androiddevchallenge.ui.components.PuppyListHeader
 import com.example.androiddevchallenge.ui.components.PuppyListItem
 import com.example.androiddevchallenge.ui.components.Toolbar
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
+    @ExperimentalFoundationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -42,18 +46,27 @@ class MainActivity : AppCompatActivity() {
 }
 
 // Start building your app here!
+@ExperimentalFoundationApi
 @Composable
 fun MyApp() {
     Column() {
         Toolbar()
+        val grouped = dummyValue.sortedBy { it.name }.groupBy { it.name[0] }
         LazyColumn(contentPadding = PaddingValues(horizontal = 0.dp, vertical = 4.dp)) {
-            itemsIndexed(dummyValue) { index, item ->
-                PuppyListItem(puppy = item)
+            grouped.forEach { (initial, puppiesByInitial) ->
+                stickyHeader {
+                    PuppyListHeader(initial.toString())
+                }
+
+                itemsIndexed(puppiesByInitial) { index, item ->
+                    PuppyListItem(puppy = item)
+                }
             }
         }
     }
 }
 
+@ExperimentalFoundationApi
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun LightPreview() {
@@ -62,6 +75,7 @@ fun LightPreview() {
     }
 }
 
+@ExperimentalFoundationApi
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun DarkPreview() {

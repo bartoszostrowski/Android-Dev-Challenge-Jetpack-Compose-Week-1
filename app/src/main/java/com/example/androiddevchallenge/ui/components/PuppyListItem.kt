@@ -67,12 +67,20 @@ fun PuppyListItem(puppy: Puppy = dummyValue[0]) {
                     val genderIcon =
                         if (puppy.gender == Gender.Male) Icons.Filled.Male else Icons.Filled.Female
                     val genderColor = if (puppy.gender == Gender.Male) Color.Blue else Color.Red
-                    Icon(
-                        genderIcon,
-                        contentDescription = null,
-                        tint = genderColor.copy(alpha = 0.4f),
-                        modifier = Modifier.padding(4.dp)
-                    )
+                    Column() {
+                        Icon(
+                            genderIcon,
+                            contentDescription = null,
+                            tint = genderColor.copy(alpha = 0.4f),
+                            modifier = Modifier.padding(4.dp)
+                        )
+                        Icon(
+                            genderIcon,
+                            contentDescription = null,
+                            tint = genderColor.copy(alpha = 0.4f),
+                            modifier = Modifier.padding(4.dp)
+                        )
+                    }
                 }
             }
         }
