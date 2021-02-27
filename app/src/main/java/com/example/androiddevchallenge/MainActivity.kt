@@ -19,18 +19,20 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.example.androiddevchallenge.data.dummyValue
-import com.example.androiddevchallenge.ui.components.PuppyListHeader
-import com.example.androiddevchallenge.ui.components.PuppyListItem
-import com.example.androiddevchallenge.ui.components.Toolbar
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.navArgument
+import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.ui.Actions
+import com.example.androiddevchallenge.ui.Destinations.Home
+import com.example.androiddevchallenge.ui.Destinations.PuppyDetailArgs.PuppyId
+import com.example.androiddevchallenge.ui.Destinations.PuppyDetails
+import com.example.androiddevchallenge.ui.screens.HomeScreen
+import com.example.androiddevchallenge.ui.screens.PuppyDetailsScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
@@ -49,18 +51,22 @@ class MainActivity : AppCompatActivity() {
 @ExperimentalFoundationApi
 @Composable
 fun MyApp() {
-    Column() {
-        Toolbar()
-        val grouped = dummyValue.sortedBy { it.name }.groupBy { it.name[0] }
-        LazyColumn(contentPadding = PaddingValues(horizontal = 0.dp, vertical = 4.dp)) {
-            grouped.forEach { (initial, puppiesByInitial) ->
-                stickyHeader {
-                    PuppyListHeader(initial.toString())
-                }
+    val navController = rememberNavController()
+    val actions = remember(navController) { Actions(navController) }
 
-                itemsIndexed(puppiesByInitial) { index, item ->
-                    PuppyListItem(puppy = item)
-                }
+    MyTheme {
+        NavHost(navController = navController, startDestination = Home) {
+            composable(Home) {
+                HomeScreen(openDetails = actions.openDetails)
+            }
+            composable(
+                "$PuppyDetails/{$PuppyId}",
+                arguments = listOf(navArgument(PuppyId) { type = NavType.IntType })
+            ) { backStackEntry ->
+                PuppyDetailsScreen(
+                    puppyId = backStackEntry.arguments?.getInt(PuppyId) ?: 0,
+                    navigateBack = actions.navigateBack
+                )
             }
         }
     }

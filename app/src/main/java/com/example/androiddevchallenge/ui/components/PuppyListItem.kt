@@ -2,6 +2,7 @@ package com.example.androiddevchallenge.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
@@ -27,11 +28,15 @@ import com.example.androiddevchallenge.ui.theme.secondaryText
 
 @Preview
 @Composable
-fun PuppyListItem(puppy: Puppy = dummyValue[0]) {
+fun PuppyListItem(
+    puppy: Puppy = dummyValue[0],
+    onClick: (Int) -> Unit
+) {
     MyTheme {
         Card(
             modifier = Modifier
                 .padding(horizontal = 8.dp, vertical = 4.dp)
+                .clickable(onClick = { onClick(0) })
         ) {
             Column(
                 Modifier
@@ -67,20 +72,12 @@ fun PuppyListItem(puppy: Puppy = dummyValue[0]) {
                     val genderIcon =
                         if (puppy.gender == Gender.Male) Icons.Filled.Male else Icons.Filled.Female
                     val genderColor = if (puppy.gender == Gender.Male) Color.Blue else Color.Red
-                    Column() {
-                        Icon(
-                            genderIcon,
-                            contentDescription = null,
-                            tint = genderColor.copy(alpha = 0.4f),
-                            modifier = Modifier.padding(4.dp)
-                        )
-                        Icon(
-                            genderIcon,
-                            contentDescription = null,
-                            tint = genderColor.copy(alpha = 0.4f),
-                            modifier = Modifier.padding(4.dp)
-                        )
-                    }
+                    Icon(
+                        genderIcon,
+                        contentDescription = null,
+                        tint = genderColor.copy(alpha = 0.4f),
+                        modifier = Modifier.padding(4.dp)
+                    )
                 }
             }
         }
