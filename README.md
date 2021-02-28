@@ -6,7 +6,7 @@
 
 
 ## :scroll: Description
-Puppu adoption application for #AndroidDevChallenge - Jetpack Compose, Week 1
+Puppy adoption application for #AndroidDevChallenge - Jetpack Compose, Week 1
 
 
 ## :bulb: Motivation and Context
