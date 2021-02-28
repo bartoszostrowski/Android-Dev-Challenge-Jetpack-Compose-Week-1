@@ -18,14 +18,25 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.navArgument
+import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.ui.Actions
+import com.example.androiddevchallenge.ui.Destinations.Home
+import com.example.androiddevchallenge.ui.Destinations.PuppyDetailArgs.PuppyId
+import com.example.androiddevchallenge.ui.Destinations.PuppyDetails
+import com.example.androiddevchallenge.ui.screens.HomeScreen
+import com.example.androiddevchallenge.ui.screens.PuppyDetailsScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
+    @ExperimentalFoundationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -37,13 +48,31 @@ class MainActivity : AppCompatActivity() {
 }
 
 // Start building your app here!
+@ExperimentalFoundationApi
 @Composable
 fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+    val navController = rememberNavController()
+    val actions = remember(navController) { Actions(navController) }
+
+    MyTheme {
+        NavHost(navController = navController, startDestination = Home) {
+            composable(Home) {
+                HomeScreen(openDetails = actions.openDetails)
+            }
+            composable(
+                "$PuppyDetails/{$PuppyId}",
+                arguments = listOf(navArgument(PuppyId) { type = NavType.IntType })
+            ) { backStackEntry ->
+                PuppyDetailsScreen(
+                    puppyId = backStackEntry.arguments?.getInt(PuppyId) ?: 0,
+                    navigateUp = actions.navigateUp
+                )
+            }
+        }
     }
 }
 
+@ExperimentalFoundationApi
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun LightPreview() {
@@ -52,6 +81,7 @@ fun LightPreview() {
     }
 }
 
+@ExperimentalFoundationApi
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun DarkPreview() {
