@@ -1,6 +1,7 @@
 package com.example.androiddevchallenge.data
 
 data class Puppy(
+    val id: Int,
     val name: String,
     val breed: String,
     val gender: Gender,

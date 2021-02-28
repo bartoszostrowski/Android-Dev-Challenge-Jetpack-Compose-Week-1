@@ -29,14 +29,15 @@ import com.example.androiddevchallenge.ui.theme.secondaryText
 @Preview
 @Composable
 fun PuppyListItem(
-    puppy: Puppy = dummyValue[0],
+    puppyId: Int = 0,
     onClick: (Int) -> Unit
 ) {
+    val puppy: Puppy = dummyValue[puppyId]
     MyTheme {
         Card(
             modifier = Modifier
                 .padding(horizontal = 8.dp, vertical = 4.dp)
-                .clickable(onClick = { onClick(0) })
+                .clickable(onClick = { onClick(puppyId) })
         ) {
             Column(
                 Modifier
