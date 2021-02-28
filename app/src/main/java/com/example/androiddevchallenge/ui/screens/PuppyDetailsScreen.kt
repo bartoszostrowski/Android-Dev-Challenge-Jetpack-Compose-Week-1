@@ -3,9 +3,16 @@ package com.example.androiddevchallenge.ui.screens
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Button
+import androidx.compose.material.Card
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -44,7 +51,7 @@ fun PuppyDetailsScreen(
             contentScale = ContentScale.Crop
         )
 
-        Row() {
+        Row {
             Card(
                 Modifier
                     .weight(1f, true)
@@ -159,7 +166,7 @@ fun PuppyDetailsScreen(
                             ),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
-                        text = "${puppy.location}"
+                        text = puppy.location
                     )
                 }
             }
