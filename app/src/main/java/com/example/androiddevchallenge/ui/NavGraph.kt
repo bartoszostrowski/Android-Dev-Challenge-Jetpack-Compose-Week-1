@@ -17,7 +17,7 @@ class Actions(navController: NavHostController) {
     val openDetails: (Int) -> Unit = { puppyId ->
         navController.navigate("$PuppyDetails/$puppyId")
     }
-    val navigateBack: () -> Unit = {
+    val navigateUp: () -> Unit = {
         navController.popBackStack()
     }
 }

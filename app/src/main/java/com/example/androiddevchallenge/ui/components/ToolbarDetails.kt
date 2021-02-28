@@ -14,12 +14,12 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 @Composable
 fun ToolbarDetails(
     puppy: Puppy,
-    navigateBack: () -> Unit
+    navigateUp: () -> Unit
 ) {
     MyTheme {
         TopAppBar(
             navigationIcon = {
-                IconButton(onClick = { navigateBack }, enabled = true) {
+                IconButton(onClick = navigateUp) {
                     Icon(
                         Icons.Filled.ArrowBack,
                         contentDescription = null,

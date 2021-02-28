@@ -24,14 +24,14 @@ import com.example.androiddevchallenge.ui.theme.darkBrown
 @Composable
 fun PuppyDetailsScreen(
     puppyId: Int,
-    navigateBack: () -> Unit
+    navigateUp: () -> Unit
 ) {
     val puppy: Puppy = dummyValue[puppyId]
 
     Column(Modifier.fillMaxHeight()) {
         ToolbarDetails(
             puppy = puppy,
-            navigateBack = navigateBack
+            navigateUp = navigateUp
         )
         Image(
             modifier = Modifier

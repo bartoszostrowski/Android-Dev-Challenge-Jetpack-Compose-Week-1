@@ -65,7 +65,7 @@ fun MyApp() {
             ) { backStackEntry ->
                 PuppyDetailsScreen(
                     puppyId = backStackEntry.arguments?.getInt(PuppyId) ?: 0,
-                    navigateBack = actions.navigateBack
+                    navigateUp = actions.navigateUp
                 )
             }
         }
