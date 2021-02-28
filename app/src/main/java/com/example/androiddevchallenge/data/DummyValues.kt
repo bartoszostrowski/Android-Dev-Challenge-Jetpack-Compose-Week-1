@@ -11,7 +11,8 @@ val dummyValue = listOf(
         image = R.drawable.boxer,
         contactNumber = "a",
         age = 3,
-        distance = 10f,
+        weight = 4f,
+        location = "Szczecin, Poland",
         description = "Lorem ipsum"
     ),
     Puppy(
@@ -22,7 +23,8 @@ val dummyValue = listOf(
         image = R.drawable.chihuahua,
         contactNumber = "a",
         age = 6,
-        distance = 10f,
+        weight = 10f,
+        location = "Gryfino, Poland",
         description = "Lorem ipsum"
     ),
     Puppy(
@@ -33,7 +35,8 @@ val dummyValue = listOf(
         image = R.drawable.collie,
         contactNumber = "a",
         age = 2,
-        distance = 10f,
+        weight = 2f,
+        location = "Szczecin, Poland",
         description = "Lorem ipsum"
     ),
     Puppy(
@@ -44,7 +47,8 @@ val dummyValue = listOf(
         image = R.drawable.dalmatian,
         contactNumber = "a",
         age = 1,
-        distance = 10f,
+        weight = 10f,
+        location = "Poznań, Poland",
         description = "Lorem ipsum"
     ),
     Puppy(
@@ -55,7 +59,8 @@ val dummyValue = listOf(
         image = R.drawable.husky,
         contactNumber = "a",
         age = 3,
-        distance = 10f,
+        weight = 5f,
+        location = "Berlin, Germany",
         description = "Lorem ipsum"
     ),
     Puppy(
@@ -66,7 +71,8 @@ val dummyValue = listOf(
         image = R.drawable.maltese,
         contactNumber = "a",
         age = 7,
-        distance = 10f,
+        weight = 10f,
+        location = "Berlin, Germany",
         description = "Lorem ipsum"
     ),
     Puppy(
@@ -77,7 +83,8 @@ val dummyValue = listOf(
         image = R.drawable.newfoundland,
         contactNumber = "a",
         age = 6,
-        distance = 10f,
+        weight = 3f,
+        location = "Berlin, Germany",
         description = "Lorem ipsum"
     ),
     Puppy(
@@ -88,7 +95,8 @@ val dummyValue = listOf(
         image = R.drawable.golden_retriever,
         contactNumber = "a",
         age = 1,
-        distance = 10f,
+        weight = 6f,
+        location = "Berlin, Germany",
         description = "Lorem ipsum"
     ),
 
@@ -100,7 +108,8 @@ val dummyValue = listOf(
         image = R.drawable.cairn,
         contactNumber = "a",
         age = 12,
-        distance = 10f,
+        weight = 4f,
+        location = "Eberswalde, Germany",
         description = "Lorem ipsum"
     ),
 
@@ -112,7 +121,8 @@ val dummyValue = listOf(
         image = R.drawable.chiuhaha,
         contactNumber = "a",
         age = 9,
-        distance = 10f,
+        weight = 5f,
+        location = "Schwedt, Germany",
         description = "Lorem ipsum"
     ),
 
@@ -124,7 +134,8 @@ val dummyValue = listOf(
         image = R.drawable.havanese,
         contactNumber = "a",
         age = 10,
-        distance = 10f,
+        weight = 5f,
+        location = "Stargard, Poland",
         description = "Lorem ipsum"
     ),
 
@@ -136,7 +147,8 @@ val dummyValue = listOf(
         image = R.drawable.labrador,
         contactNumber = "a",
         age = 1,
-        distance = 10f,
+        weight = 4f,
+        location = "Szczecin, Poland",
         description = "Lorem ipsum"
     ),
 
@@ -148,7 +160,8 @@ val dummyValue = listOf(
         image = R.drawable.norwegian_buhund,
         contactNumber = "a",
         age = 8,
-        distance = 10f,
+        weight = 6f,
+        location = "Szczecin, Poland",
         description = "Lorem ipsum"
     ),
 
@@ -160,7 +173,8 @@ val dummyValue = listOf(
         image = R.drawable.rottweiler,
         contactNumber = "a",
         age = 4,
-        distance = 10f,
+        weight = 6f,
+        location = "Szczecin, Poland",
         description = "Lorem ipsum"
     ),
 
@@ -172,7 +186,8 @@ val dummyValue = listOf(
         image = R.drawable.shiba,
         contactNumber = "a",
         age = 9,
-        distance = 10f,
+        weight = 3f,
+        location = "Pyrzyce, Poland",
         description = "Lorem ipsum"
     ),
 )

@@ -8,7 +8,8 @@ data class Puppy(
     val image: Int,
     val contactNumber: String,
     val age: Int,
-    val distance: Float,
+    val weight: Float,
+    val location: String,
     val description: String,
     var favorite: Boolean = false
 )

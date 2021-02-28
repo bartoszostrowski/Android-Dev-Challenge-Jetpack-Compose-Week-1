@@ -133,6 +133,67 @@ fun PuppyDetailsScreen(
             }
         }
 
+        Row {
+            Card(
+                Modifier
+                    .weight(1f, true)
+                    .padding(start = 8.dp, end = 4.dp, top = 8.dp)
+            ) {
+                Column(
+                    Modifier
+                        .background(color = brown.copy(alpha = 0.12f))
+                ) {
+                    Text(
+                        color = darkBrown,
+                        fontWeight = FontWeight.Medium,
+                        modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 8.dp),
+                        text = "Location"
+                    )
+                    Text(
+                        modifier = Modifier
+                            .padding(
+                                start = 8.dp,
+                                end = 8.dp,
+                                top = 4.dp,
+                                bottom = 8.dp
+                            ),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        text = "${puppy.location}"
+                    )
+                }
+            }
+
+            Card(
+                Modifier
+                    .weight(1f, true)
+                    .padding(start = 4.dp, end = 8.dp, top = 8.dp)
+            ) {
+                Column(
+                    Modifier
+                        .background(color = brown.copy(alpha = 0.12f))
+                ) {
+                    Text(
+                        color = darkBrown,
+                        fontWeight = FontWeight.Medium,
+                        modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 8.dp),
+                        text = "Weight"
+                    )
+                    Text(
+                        modifier = Modifier
+                            .padding(
+                                start = 8.dp,
+                                end = 8.dp,
+                                top = 4.dp,
+                                bottom = 8.dp
+                            ),
+                        overflow = TextOverflow.Ellipsis,
+                        text = "${puppy.weight} kg"
+                    )
+                }
+            }
+        }
+
         Card(
             Modifier
                 .fillMaxWidth()
@@ -159,12 +220,12 @@ fun PuppyDetailsScreen(
                             bottom = 8.dp
                         ),
                     overflow = TextOverflow.Ellipsis,
-                    text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                    text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
                 )
             }
         }
 
-        Row() {
+        Row {
             Button(
                 modifier = Modifier
                     .weight(1f, true)
