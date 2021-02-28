@@ -67,7 +67,9 @@ fun PuppyDetailsScreen(
                             top = 4.dp,
                             bottom = 8.dp
                         ),
-                        text = puppy.breed
+                        text = puppy.breed,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
                 }
             }
@@ -94,7 +96,9 @@ fun PuppyDetailsScreen(
                             top = 4.dp,
                             bottom = 8.dp
                         ),
-                        text = puppy.gender.name
+                        text = puppy.gender.name,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
                 }
             }
@@ -121,7 +125,9 @@ fun PuppyDetailsScreen(
                             top = 4.dp,
                             bottom = 8.dp
                         ),
-                        text = "${puppy.age} month"
+                        text = "${puppy.age} months",
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
                 }
             }
